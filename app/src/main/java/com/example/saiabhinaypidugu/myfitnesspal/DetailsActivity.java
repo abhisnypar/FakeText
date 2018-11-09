@@ -26,8 +26,6 @@ public class DetailsActivity extends AppCompatActivity {
     TextView articleDetail2;
     @BindView(R.id.detail_article_detail_3)
     TextView articleDetail3;
-    @BindView(R.id.detail_article_detail_4)
-    TextView articleDetail4;
 
     private int integer;
 
@@ -35,17 +33,15 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         setContentView(R.layout.activity_details_screen);
+        ButterKnife.bind(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         integer = (int) getIntent().getExtras().get(ADAPTER_POSITION);
 
         articleName.setText(ConstanData.getArticlesQueryResponseResponseModel().response.docsList.get(integer).abstractValue);
         articleDetail.setText(ConstanData.getArticlesQueryResponseResponseModel().response.docsList.get(integer).documentType);
-        articleDetail2.setText(ConstanData.getArticlesQueryResponseResponseModel().response.docsList.get(integer).byline.organization);
+        articleDetail2.setText(ConstanData.getArticlesQueryResponseResponseModel().response.docsList.get(integer).docsSource);
         articleDetail3.setText(ConstanData.getArticlesQueryResponseResponseModel().response.docsList.get(integer).pubDate);
-        articleDetail4.setText(ConstanData.getArticlesQueryResponseResponseModel().response.docsList.get(integer).score);
-
     }
 
     @Override
